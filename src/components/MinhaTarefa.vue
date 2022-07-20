@@ -13,7 +13,7 @@
         </v-list-item-content>
 
         <v-list-item-action>
-          <v-btn icon @click.stop="removeWork(tarefa.id)"><v-icon color="red lighten-1">mdi-trash-can</v-icon></v-btn>
+          <v-btn icon @click.stop="removeWork(tarefa)"><v-icon color="red lighten-1">mdi-trash-can</v-icon></v-btn>
         </v-list-item-action>
         
         </template>
@@ -32,10 +32,11 @@ export default {
   },
   methods: {
     atualizaPai() {
-      this.$emit('interface', this.tarefa) // emitimos um evento que altera o dado no componente pai baseado no componente filho alterado
+      this.$emit('filhoAlterouPai', this.tarefa) // emitimos um evento que altera o dado no componente pai baseado no componente filho alterado
     },
     removeWork(id) {
       this.$store.commit('removeWork', id)
+      this.atualizaPai()
     }
   },
   data: () => ({

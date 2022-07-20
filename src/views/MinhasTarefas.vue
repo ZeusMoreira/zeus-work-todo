@@ -17,7 +17,7 @@
         <v-list-item-group
           multiple
         >
-        <div v-for="work, index in $store.state.works" :key="index" >
+        <div v-for="work in $store.state.works" :key="work.id" >
           <minha-tarefa :work="work" @filhoAlterouPai="work = $event"></minha-tarefa>
         </div>       
       </v-list-item-group>

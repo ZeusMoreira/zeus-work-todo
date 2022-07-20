@@ -30,8 +30,9 @@ export default new Vuex.Store({
         })
       }
     },
-    removeWork(state, id){
-      state.works = state.works.filter(work => work.id !== id)
+    removeWork(state, work){
+      let indexWork = state.works.indexOf(work)
+      state.works.splice(indexWork, 1)   
     }
   },
   actions: {
